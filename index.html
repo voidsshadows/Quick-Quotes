@@ -24,55 +24,34 @@
         const form = document.getElementById('quoteForm');
         const quotesContainer = document.getElementById('quotesContainer');
         const workerUrl = 'https://messaging.logodzip18.workers.dev';
-
+    
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const quote = document.getElementById('quote').value;
-
+    
             try {
-                await fetch(`${workerUrl}/kv`, {
+                const response = await fetch(`${workerUrl}/kv`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ key: name, value: quote })
                 });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 form.reset();
-                fetchQuotes();
+                // Display the submitted quote directly without fetching all quotes
+                displayQuote(name, quote);
             } catch (error) {
                 console.error('Failed to submit quote:', error);
             }
         });
-
-        async function fetchQuotes() {
-            try {
-                const response = await fetch(`${workerUrl}/kv?key=`);
-                const data = await response.json();
-                const keys = data.keys;
-
-                const quotes = await Promise.all(
-                    keys.map(async (key) => {
-                        const response = await fetch(`${workerUrl}/kv?key=${key}`);
-                        const data = await response.json();
-                        return data;
-                    })
-                );
-
-                displayQuotes(quotes);
-            } catch (error) {
-                console.error('Failed to fetch quotes:', error);
-            }
+    
+        function displayQuote(name, quote) {
+            const quoteElement = document.createElement('div');
+            quoteElement.innerHTML = `<strong>${name}:</strong> ${quote}`;
+            quotesContainer.appendChild(quoteElement);
         }
-
-        function displayQuotes(quotes) {
-            quotesContainer.innerHTML = '';
-            quotes.forEach(quote => {
-                const quoteElement = document.createElement('div');
-                quoteElement.innerHTML = `<strong>${quote.key}:</strong> ${quote.value}`;
-                quotesContainer.appendChild(quoteElement);
-            });
-        }
-
-        fetchQuotes();
     </script>
 </body>
 </html>
