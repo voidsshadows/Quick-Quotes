@@ -1,43 +1,43 @@
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Quick Quotes</title>
-        <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    </head>
-    <body>
-        <div class="container">
-            <h2>Quick Quotes</h2>
-            <form id="quoteForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quick Quotes</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Quick Quotes</h2>
+        <form id="quoteForm">
+            <label for="User">Name:</label>
+            <input type="text" id="name" name="User" placeholder="Enter your name">
 
-                <label for="quote">Quote:</label>
-                <textarea id="quote" name="quote" placeholder="Enter your quote"></textarea>
+            <label for="Quote">Quote:</label>
+            <textarea id="quote" name="Quote" placeholder="Enter your quote"></textarea>
 
-                <button type="button" onclick="submitForm()">Submit</button>
-            </form>
-        </div>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
 
-        <script>
-            function submitForm() {
-                var formData = new FormData();
-                formData.append('name', document.getElementById('name').value);
-                formData.append('quote', document.getElementById('quote').value);
+    <script>
+        function submitForm() {
+            var formData = new FormData();
+            formData.append('User', document.getElementById('name').value);
+            formData.append('Quote', document.getElementById('quote').value);
 
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'https://messaging.logodzip18.workers.dev/', true);
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        alert('Data submitted successfully!');
-                    } else {
-                        alert('Error: ' + xhr.statusText);
-                    }
-                };
-                xhr.onerror = function () {
-                    alert('Request failed.');
-                };
-                xhr.send(formData);
-            }
-        </script>
-    </body>
-    </html>
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://messaging.logodzip18.workers.dev/', true); // Update the endpoint to match your Cloudflare Worker script
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    alert('Data submitted successfully!');
+                } else {
+                    alert('Error: ' + xhr.statusText);
+                }
+            };
+            xhr.onerror = function () {
+                alert('Request failed.');
+            };
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>
