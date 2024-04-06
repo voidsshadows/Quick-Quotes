@@ -1,7 +1,9 @@
+/* Font styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Container styles */
 .container {
   width: 300px;
   margin: 0 auto;
@@ -9,6 +11,7 @@ body {
   border-radius: 5px;
 }
 
+/* Input and Textarea styles */
 .container input[type="text"],
 .container textarea {
   width: 100%;
@@ -19,6 +22,7 @@ body {
   animation: shadow-pop-tr 0.9s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.1s both;
 }
 
+/* Button styles */
 .container button {
   padding: 10px 20px;
   background-color: #000000;
@@ -29,25 +33,27 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* New CSS */
+/* Quote box styles with animation */
 .quote-box {
   margin-top: 20px;
   padding: 10px;
   background-color: #f2f2f2;
   border-radius: 5px;
+  animation: shadow-pop-tr 0.9s cubic-bezier(0.470, 0.000, 0.745, 0.715) 0.1s both;
 }
 
 .quote-box h3 {
   margin-bottom: 10px;
 }
 
+/* Keyframes for animation */
 @keyframes shadow-pop-tr {
   0% {
-      box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
-      transform: translateX(0) translateY(0);
+    box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+    transform: translateX(0) translateY(0);
   }
   100% {
-      box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
-      transform: translateX(-8px) translateY(8px);
+    box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
+    transform: translateX(-8px) translateY(8px);
   }
 }
