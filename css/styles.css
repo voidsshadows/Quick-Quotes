@@ -5,10 +5,16 @@ body {
 
 /* Container styles */
 .container {
-  width: 300px;
+  max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 5px;
+  position: relative;
+  /* Added for positioning the moving background */
+  overflow: hidden;
+  /* Added to hide overflowing background */
+  animation: move-background 20s linear infinite alternate;
+  /* Animation for moving background */
 }
 
 /* Input and Textarea styles */
@@ -49,11 +55,47 @@ body {
 /* Keyframes for animation */
 @keyframes shadow-pop-tr {
   0% {
-    box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
-    transform: translateX(0) translateY(0);
+      box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+      transform: translateX(0) translateY(0);
   }
   100% {
-    box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
-    transform: translateX(-8px) translateY(8px);
+      box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
+      transform: translateX(-8px) translateY(8px);
   }
+}
+
+/* Keyframes for moving background */
+@keyframes move-background {
+  0% {
+      background-position: 0 0;
+  }
+  100% {
+      background-position: 100% 100%;
+  }
+}
+
+/* Media Queries for better mobile and desktop support */
+@media (max-width: 600px) {
+  .container {
+      max-width: 90%;
+  }
+}
+
+body {
+	background: linear-gradient(-45deg, #ffffff, #b1b1b1, #7e7b7b, rgb(0, 0, 0));
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
