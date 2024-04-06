@@ -9,35 +9,70 @@
         <h2>Quick Quotes</h2>
         <form id="quoteForm">
             <label for="User">Name:</label>
-            <input type="text" id="name" name="User" placeholder="Enter your name">
+            <input type="text" id="name" name="User" placeholder="Enter your name" required>
 
             <label for="Quote">Quote:</label>
-            <textarea id="quote" name="Quote" placeholder="Enter your quote"></textarea>
+            <textarea id="quote" name="Quote" placeholder="Enter your quote" required></textarea>
 
-            <button type="button" onclick="submitForm()">Submit</button>
+            <button type="submit">Submit</button>
         </form>
+
+        <div id="quotesContainer"></div>
     </div>
 
     <script>
-        function submitForm() {
-            var formData = new FormData();
-            formData.append('User', document.getElementById('name').value);
-            formData.append('Quote', document.getElementById('quote').value);
+        const form = document.getElementById('quoteForm');
+        const quotesContainer = document.getElementById('quotesContainer');
+        const workerUrl = 'https://messaging.logodzip18.workers.dev';
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://messaging.logodzip18.workers.dev/', true); // Update the endpoint to match your Cloudflare Worker script
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    alert('Data submitted successfully!');
-                } else {
-                    alert('Error: ' + xhr.statusText);
-                }
-            };
-            xhr.onerror = function () {
-                alert('Request failed.');
-            };
-            xhr.send(formData);
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const quote = document.getElementById('quote').value;
+
+            try {
+                await fetch(`${workerUrl}/kv`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: name, value: quote })
+                });
+                form.reset();
+                fetchQuotes();
+            } catch (error) {
+                console.error('Failed to submit quote:', error);
+            }
+        });
+
+        async function fetchQuotes() {
+            try {
+                const response = await fetch(`${workerUrl}/kv?key=`);
+                const data = await response.json();
+                const keys = data.keys;
+
+                const quotes = await Promise.all(
+                    keys.map(async (key) => {
+                        const response = await fetch(`${workerUrl}/kv?key=${key}`);
+                        const data = await response.json();
+                        return data;
+                    })
+                );
+
+                displayQuotes(quotes);
+            } catch (error) {
+                console.error('Failed to fetch quotes:', error);
+            }
         }
+
+        function displayQuotes(quotes) {
+            quotesContainer.innerHTML = '';
+            quotes.forEach(quote => {
+                const quoteElement = document.createElement('div');
+                quoteElement.innerHTML = `<strong>${quote.key}:</strong> ${quote.value}`;
+                quotesContainer.appendChild(quoteElement);
+            });
+        }
+
+        fetchQuotes();
     </script>
 </body>
 </html>
