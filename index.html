@@ -17,41 +17,15 @@
             <button type="submit">Submit</button>
         </form>
 
-        <div id="quotesContainer"></div>
+        <div id="myQuotesContainer">
+            <h3>Your Quotes</h3>
+        </div>
+
+        <div id="otherQuotesContainer">
+            <h3>Quotes from Others</h3>
+        </div>
     </div>
 
-    <script>
-        const form = document.getElementById('quoteForm');
-        const quotesContainer = document.getElementById('quotesContainer');
-        const workerUrl = 'https://messaging.logodzip18.workers.dev';
-    
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const quote = document.getElementById('quote').value;
-    
-            try {
-                const response = await fetch(`${workerUrl}/kv`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ key: name, value: quote })
-                });
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                form.reset();
-                // Display the submitted quote directly without fetching all quotes
-                displayQuote(name, quote);
-            } catch (error) {
-                console.error('Failed to submit quote:', error);
-            }
-        });
-    
-        function displayQuote(name, quote) {
-            const quoteElement = document.createElement('div');
-            quoteElement.innerHTML = `<strong>${name}:</strong> ${quote}`;
-            quotesContainer.appendChild(quoteElement);
-        }
-    </script>
+    <script src="/js/"></script>
 </body>
 </html>
