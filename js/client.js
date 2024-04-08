@@ -51,8 +51,10 @@ function displayQuote(key, value) {
 
 function sanitizeInput(input) {
     // Replace HTML special characters with their entities to prevent XSS
-    return input.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    return input.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
+
+
 
 // Fetch and display all quotes on page load
 fetchAndDisplayAllQuotes();
