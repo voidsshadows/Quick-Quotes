@@ -4,8 +4,8 @@ const workerUrl = 'https://messaging.logodzip18.workers.dev';
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    const quote = document.getElementById('quote').value;
+    const name = sanitizeInput(document.getElementById('name').value);
+    const quote = sanitizeInput(document.getElementById('quote').value);
 
     try {
         const response = await fetch(`${workerUrl}/kv`, {
@@ -45,8 +45,13 @@ function displayQuotes(quotes) {
 
 function displayQuote(key, value) {
     const quoteElement = document.createElement('div');
-    quoteElement.innerHTML = `<strong>${key}:</strong> ${value}`;
+    quoteElement.textContent = `${sanitizeInput(key)}: ${sanitizeInput(value)}`;
     quotesContainer.appendChild(quoteElement);
+}
+
+function sanitizeInput(input) {
+    // Replace HTML special characters with their entities to prevent XSS
+    return input.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
 // Fetch and display all quotes on page load
