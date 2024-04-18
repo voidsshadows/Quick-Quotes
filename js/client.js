@@ -1,12 +1,12 @@
     const form = document.getElementById('quoteForm');
     const quotesContainer = document.getElementById('quotesContainer');
     const workerUrl = 'https://messaging.logodzip18.workers.dev';
-
+    
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const name = document.getElementById('name').value;
         const quote = document.getElementById('quote').value;
-
+        
         if (!name || !quote) {
             console.error('Name or Quote is empty');
             return; // Don't proceed if name or quote is empty
@@ -48,7 +48,7 @@
             console.error('Failed to fetch all quotes:', error.message);
         }
     }
-
+    
     function displayQuotes(quotes) {
         quotesContainer.innerHTML = ''; // Clear existing quotes
         quotes.forEach(quote => {
@@ -65,7 +65,11 @@
     function sanitizeInput(input) {
         // Replace HTML special characters with their entities to prevent XSS
         return input.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+        .substring(0, 30);
+        //added code will push to production eveuntually since I dont know if this code actually works
     }
 
     // Fetch and display all quotes on page load
     fetchAndDisplayAllQuotes();
+

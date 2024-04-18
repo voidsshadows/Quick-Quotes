@@ -18,9 +18,10 @@
 
             <label for="Quote">Quote:</label>
             <textarea id="quote" name="Quote" placeholder="Enter your quote" required></textarea>
-
+            <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAWeEBEvp0A97iRU" data-callback="javascriptCallback"></div>
             <button type="submit">Submit</button>
-            
+            <button type="login" id="clear">Clear</button>
         </form>
 
         <div class="quote-box">
