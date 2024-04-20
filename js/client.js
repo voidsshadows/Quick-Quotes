@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value;
@@ -87,3 +86,8 @@ function sanitizeInput(input) {
 
 // Fetch and display all quotes on page load
 fetchAndDisplayAllQuotes();
+
+// Turnstile Recaptcha
+function javascriptCallback() {
+    turnstileVerified = true;
+}
