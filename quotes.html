@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta name="description" content="Quick Quotes is a simple web app that allows users to submit and view quotes.">
+<html lang="en">
+<head>
+    <title>Quick Quotes</title>
+    
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <!-- Add viewport meta tag for mobile optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h2>Quick Quotes</h2>
+        <form id="quoteForm">
+            <label for="User">Name:</label>
+            <input type="text" id="name" name="User" placeholder="Enter your name" required>
+
+            <label for="Quote">Quote:</label>
+            <textarea id="quote" name="Quote" placeholder="Enter your quote" required></textarea>
+            <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAWeEBEvp0A97iRU" data-callback="javascriptCallback"></div>
+            <button type="submit">Submit</button>
+            <button type="button" id="clear">Clear</button> <!-- Changed type to "button" for clearing -->
+        </form>
+
+        <div class="quote-box">
+            <h3>Quotes</h3>
+            <div id="quotesContainer"></div>
+        </div>
+    </div>
+    
+    
+    <script src="/js/client.js"></script>
+    
+</body>
+</html>
