@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/about.css">
+    <title>About Me</title>
+</head>
+
+<body>
+    <!-- Include the header -->
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('header.html')
+            .then(response => {
+                return response.text()
+            })
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
+<body>
+    <h2>About Me</h2>
+    <p>Welcome to my about me page! Here, you'll find some information about who I am and what I do.</p>
+    
+    <h2>Background</h2>
+    <p>I come from a diverse background with experience in various fields. I have a passion for learning and exploring new technologies.</p>
+
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        
+    </ul>
+    
+    <h2>Interests</h2>
+    <ul>
+        <li>Web development</li>
+        <li>cloudflare pages</li>
+        <li>frameworks </li>
+        <li>Mobile app development</li>
+    </ul>
+
+
+
+<h3>Mission statement</h3>
+<p>Highly motivated and creative 11th-grade student with a strong interest in web design seeking an internship opportunity in the web design industry. Eager to apply my knowledge and learn new skills to contribute to a professional web design team.</p>
+
+<h3>Education</h3>
+<p>STISD High School Name, Mercedess TX</p>
+<p>Expected Graduation 2025</p>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>My Portfolio</h2>
+            <div class="box">
+                <h3>Hacker Card</h3>
+                <img src="/images/hackercard.jpg" alt="Hacker Card" style="width: 200px; height: auto;">
+            </div>
+            <div class="box">
+                <h3>Quick Qoutes</h3>
+                <img src="/images/quotes.png" alt="QuickQuotes" style="width: 200px; height: auto;">
+                
+            </div>
+            <div class="box">
+                <h3>project</h3>
+                <img src="project3.jpg  " alt="" style="width: 200px; height: auto;">
+            </div>
+            <div class="box">
+                <h3>Project 4</h3>
+                <img src="project4.jpg" alt="Project 4" style="width: 200px; height: auto;">
+            </div>
+            <a href="https://github.com/voidsshadows" class="button">View All Projects</a>
+        </div>
+    </section>
+    
+   
+    <p>If you have any questions or would like to get in touch, feel free to reach out to me.</p>
+    <h3><a href="contact.html">Contact</a></h3>
+</body>
+</html>

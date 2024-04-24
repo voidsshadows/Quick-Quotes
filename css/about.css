@@ -1,0 +1,110 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Header Styles */
+  h2 {
+    font-size: 28px;
+    margin-top: 40px;
+    animation: slideInLeft 0.5s ease-in-out;
+  }
+  
+  /* Paragraph Styles */
+  p {
+    line-height: 1.6;
+    color: #444;
+    font-size: 16px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* List Styles */
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #444;
+    font-size: 16px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Portfolio Section Styles */
+  #portfolio {
+    background-color: #f5f5f5;
+    padding: 50px 0;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .box {
+    display: inline-block;
+    width: 48%;
+    margin-bottom: 40px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-in-out forwards;
+  }
+  
+  .box:nth-child(even) {
+    animation-delay: 0.2s;
+  }
+  
+  .button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  
+  /* Contact Section Styles */
+  h3 a {
+    color: #333;
+    text-decoration: none;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  h3 a:hover {
+    color: #555;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
