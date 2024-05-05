@@ -1,70 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    
-    <link rel="stylesheet" href="about.css">
-    <title>About Me</title>
-    <object type="text/html" data="header.html"></object>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Page Site</title>
+<style>
+  /* CSS styles for better presentation */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  header, footer {
+    background: #fcf4f4;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  nav {
+    background: #f4f4f4;
+    padding: 10px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+  }
+  section {
+    padding: 20px;
+    display: none; /* Hide all sections initially */
+  }
+  #home {
+    background-color: #f0f0f0;
+  }
+  #about {
+    background-color: #e0e0e0;
+  }
+  #contact {
+    /* Define background image and blur effect */
+    background-image: url('downloaded.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Set height to fill viewport */
+    display: flex; /* Use flexbox for centering content */
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+  }
+  /* Define container for content */
+  .content {
+    background-color: rgba(255, 255, 255, 0.8);  /* Background color for content */
+    padding: 20px; /* Add padding around content */
+    border-radius: 10px; /* Add rounded corners to content container */
+  }
+  /* Styles for text content */
+  h1, h2, h3, p {
+    font-family: Arial, sans-serif;
+    color: #000000; /* Text color */
+  }
+  h3:hover {
+    color: #000000;
+  }
+</style>
 </head>
+<body>
 
+<header>
+  <h1>Final Portfolio Profile</h1>
+</header>
+
+<nav>
+  <a href="#" onclick="showPage('home')">Home</a>
+  <a href="#" onclick="showPage('about')">About</a>
+  <a href="#" onclick="showPage('work-samples')">Work Samples</a>
+  <a href="#" onclick="showPage('reflections')">Reflections</a>
+  <a href="#" onclick="showPage('resume')">Resume</a>
+  <a href="#" onclick="showPage('contact')">Contact</a>
+</nav>
+
+<section id="home">
+  <h2>Home Page</h2>
+  <h3>Welcome to the home page of my multi-page site.</h3>
+</section>
+
+<section id="about">
     <h2>About Me</h2>
     <p>Welcome to my about me page! Here, you'll find some information about who I am and what I do.</p>
-    
-    <h2>Background</h2>
+    <h3>Background</h3>
     <p>I come from a diverse background with experience in various fields. I have a passion for learning and exploring new technologies.</p>
+</section>
 
-    <h2>Skills</h2>
-    <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        
-    </ul>
-    
-    <h2>Interests</h2>
-    <ul>
-        <li>Web development</li>
-        <li>cloudflare pages</li>
-        <li>frameworks </li>
-        <li>Mobile app development</li>
-    </ul>
-
-
-
-<h3>Mission statement</h3>
-<p>Highly motivated and creative 11th-grade student with a strong interest in web design seeking an internship opportunity in the web design industry. Eager to apply my knowledge and learn new skills to contribute to a professional web design team.</p>
-
-<h3>Education</h3>
-<p>STISD High School, Mercedess TX</p>
-<p>Expected Graduation 2025</p>
-
-    <section id="portfolio">
-        <div class="container">
-            <h2>My Portfolio</h2>
-            <div class="box">
-                <h3>Hacker Card</h3>
-                <img src="/images/hackercard.jpg" alt="Hacker Card" style="width: 200px; height: auto;">
-            </div>
-            <div class="box">
-                <h3>Quick Qoutes</h3>
-                <img src="/images/quotes.png" alt="QuickQuotes" style="width: 200px; height: auto;">
-                
-            </div>
-            <div class="box">
-                <h3>project</h3>
-                <img src="project3.jpg  " alt="" style="width: 200px; height: auto;">
-            </div>
-            <div class="box">
-                <h3>Project 4</h3>
-                <img src="project4.jpg" alt="Project 4" style="width: 200px; height: auto;">
-            </div>
-            <a href="https://github.com/voidsshadows" class="button">View All Projects</a>
-        </div>
-    </section>
-    
+<section id="work-samples">
+  <h2>Work Samples</h2>
+  <p>Here are some of my best work samples:</p>
+  <ul>
+    <li style="resize: both; overflow: auto;">Hacker cards: allows people to visit the provided url with the tap of a button</li>
+    <li><img src="IMG_3461.jpg"></li>
+    <li style="resize: both; overflow: auto;">Quote site: Site that takes users name and qutoe and shares them with the world </li>
+    <li><img src="image.jpg" alt="Image description"></li>
+    <li style="resize: both; overflow: auto;">mastodon client service: Allows users to connect to multiple fediverse services across the internet</li>
    
-    <p>If you have any questions or would like to get in touch, feel free to reach out to me.</p>
-    <h3><a href="contact.html">Contact</a></h3>
+    <!-- Add more projects as needed -->
+  </ul>
+  </ul>
+</section>
+
+<section id="reflections">
+  <h2>Reflections</h2>
+  <p>Reflections on my work and learning experiences:</p>
+  <p>Creating hacker cards: Creating the hacker cards taught me a lot of valuable skills that are unique to pcb design </p>
+  <p>mastodon client: desinging the mastodon client allowed me to learn things like end to end encryption</p>
+  <!-- Add more reflections as needed -->
+</section>
+
+<section id="resume">
+  <div class="content">
+    <h2>Resume</h2>
+    <h3>Michael Garcia</h3>
+    <h4>Objective:</h4>
+    <p>Highly motivated and creative 11th-grade student with a strong interest in web design seeking an internship opportunity in the web design industry. Eager to apply my knowledge and learn new skills to contribute to a professional web design team.</p>
+    <h4>Education:</h4>
+    <p>STISD High School, Mercedes, TX<br>Expected Graduation: 2025</p>
+    <h4>Skills:</h4>
+    <ul>
+      <li>Proficient in HTML, CSS, JavaScript, and Python</li>
+      <li>Familiarity with graphic design using Photoshop and Illustrator</li>
+      <li>Strong attention to detail and ability to create visually appealing designs</li>
+      <li>Excellent problem-solving skills and ability to work in a team environment</li>
+      <li>Strong communication and time management skills</li>
+    </ul>
+    <h4>Projects:</h4>
+    <ul>
+      <li>Developed online portfolio website using HTML and CSS, showcasing my design skills and creativity</li>
+      <li>Programmed and created a working game/animation using (state software used) or other project in Quarter 1</li>
+    </ul>
+    <h4>Relevant Coursework:</h4>
+    <ul>
+      <li>Introduction to Web Design</li>
+      <li>Computer Systems</li>
+      <li>Digital Citizenship</li>
+      <li>Engineering Prototype for IED</li>
+    </ul>
+    <h4>Leadership Experience:</h4>
+    <p>Served as a team leader for a school project, coordinating tasks and ensuring timely completion</p>
+    <h4>References:</h4>
+    <p>Available upon request</p>
+    <p>Download my resume <a href="Resume.pdf" download>here</a>.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="content">
+    <h1>Contact Me</h1>
+    <h2>Contact Information</h2>
+    <p>Phone: (512) 640-9506 </p>
+    <p>Email: Michael.Garcia@megarcia.xyz</p>
+    <p><a href="https://github.com/voidsshadows">Github: Voidsshadows</a></p>
+  </div>
+</section>
+
+<script>
+  function showPage(pageId) {
+    // Hide all sections
+    var sections = document.querySelectorAll('section');
+    sections.forEach(function(section) {
+      section.style.display = 'none';
+    });
+    // Show the selected section
+    var selectedSection = document.getElementById(pageId);
+    selectedSection.style.display = 'block';
+  }
+</script>
+
 </body>
 </html>
